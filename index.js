@@ -16,6 +16,11 @@ const createLogo = function() {
             },
             {
                 type: 'input',
+                message: 'Please give your logo a title:',
+                name: 'title'
+            },
+            {
+                type: 'input',
                 message: 'Please provide a color for your logo:',
                 name: 'color'
             },
@@ -28,7 +33,7 @@ const createLogo = function() {
             if(answers.shape === 'Square') {
                 const square = new Square(answers.color, answers.text);
 
-                fs.writeFile('square.svg', square.shape, (err) => {
+                fs.writeFile(`${answers.title}.svg`, square.shape, (err) => {
                     if(err) {
                         console.error(err);
                     } else {
@@ -38,7 +43,7 @@ const createLogo = function() {
             } else if(answers.shape === 'Circle') {
                 const circle = new Circle(answers.color, answers.text);
 
-                fs.writeFile('circle.svg', circle.shape, (err) => {
+                fs.writeFile(`${answers.title}.svg`, circle.shape, (err) => {
                     if(err) {
                         console.error(err);
                     } else {
@@ -48,7 +53,7 @@ const createLogo = function() {
             } else if (answers.shape === 'Triangle') {
                 const triangle = new Triangle(answers.color, answers.text);
 
-                fs.writeFile('circle.svg', triangle.shape, (err) => {
+                fs.writeFile(`${answers.title}.svg`, triangle.shape, (err) => {
                     if(err) {
                         console.error(err);
                     } else {
